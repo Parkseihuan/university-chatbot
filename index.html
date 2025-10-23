@@ -280,6 +280,16 @@
       background: #dc2626;
     }
 
+    .escalation-warning {
+      margin-top: 10px;
+      padding: 12px;
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #92400e;
+    }
+
     .welcome-message {
       text-align: center;
       padding: 40px 20px;
@@ -301,115 +311,108 @@
     .info-notice {
       background: #eff6ff;
       border-left: 4px solid #3b82f6;
-      padding: 15px 20px;
-      margin: 20px auto;
-      max-width: 700px;
-      text-align: left;
+      padding: 15px;
+      margin: 20px 0;
       border-radius: 8px;
-      font-size: 13px;
-      color: #1e40af;
-      line-height: 1.8;
-    }
-
-    .info-notice strong {
-      display: block;
-      margin-bottom: 8px;
       font-size: 14px;
       color: #1e3a8a;
+      line-height: 1.6;
     }
 
-    .info-notice ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .info-notice li {
-      margin-bottom: 5px;
+    .warning-notice {
+      background: #fee2e2;
+      border-left: 4px solid #ef4444;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #991b1b;
+      line-height: 1.6;
     }
 
     .faq-section {
-      max-width: 700px;
-      margin: 20px auto 0;
+      margin-top: 30px;
     }
 
     .faq-title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 600;
       color: #333;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
     }
 
     .faq-item {
       background: white;
-      padding: 15px 20px;
+      padding: 15px;
       border-radius: 12px;
-      border: 2px solid #e0e0e0;
+      border: 1px solid #e5e7eb;
       cursor: pointer;
       transition: all 0.2s;
-      text-align: left;
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .faq-item:hover {
       border-color: #667eea;
-      background: #f5f3ff;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
     }
 
-    .faq-rank {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: bold;
-      flex-shrink: 0;
+    .faq-icon {
+      font-size: 20px;
+    }
+
+    .faq-text {
+      font-size: 14px;
+      color: #374151;
+      font-weight: 500;
     }
 
     .input-area {
       padding: 20px 30px;
       background: white;
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .input-wrapper {
       display: flex;
-      gap: 15px;
+      gap: 12px;
       align-items: center;
     }
 
-    #userInput {
+    .input-field {
       flex: 1;
-      padding: 12px 20px;
-      border: 2px solid #e0e0e0;
+      padding: 14px 20px;
+      border: 2px solid #e5e7eb;
       border-radius: 25px;
-      font-size: 14px;
+      font-size: 15px;
       outline: none;
       transition: all 0.2s;
     }
 
-    #userInput:focus {
+    .input-field:focus {
       border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
-    #sendBtn {
-      padding: 12px 30px;
+    .send-btn {
+      padding: 14px 28px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
       border-radius: 25px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       transition: all 0.2s;
       display: flex;
@@ -417,27 +420,27 @@
       gap: 8px;
     }
 
-    #sendBtn:hover:not(:disabled) {
+    .send-btn:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
     }
 
-    #sendBtn:disabled {
+    .send-btn:disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
 
     .typing-indicator {
       display: flex;
-      gap: 5px;
-      padding: 10px 0;
+      gap: 4px;
+      padding: 5px 0;
     }
 
     .typing-dot {
       width: 8px;
       height: 8px;
-      background: #999;
       border-radius: 50%;
+      background: #667eea;
       animation: typing 1.4s infinite;
     }
 
@@ -452,7 +455,7 @@
     @keyframes typing {
       0%, 60%, 100% {
         transform: translateY(0);
-        opacity: 0.5;
+        opacity: 0.7;
       }
       30% {
         transform: translateY(-10px);
@@ -460,99 +463,7 @@
       }
     }
 
-    .loading {
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-top-color: white;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* 모바일 반응형 */
-    @media (max-width: 768px) {
-      .container {
-        height: 100vh;
-        max-height: none;
-        border-radius: 0;
-      }
-
-      .header {
-        padding: 20px;
-      }
-
-      .header-content h1 {
-        font-size: 20px;
-      }
-
-      .message-content {
-        max-width: 85%;
-      }
-
-      .chat-area {
-        padding: 20px;
-      }
-
-      .input-area {
-        padding: 15px 20px;
-      }
-    }
-
-    /* 스크롤바 스타일 */
-    .chat-area::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .chat-area::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    .chat-area::-webkit-scrollbar-thumb {
-      background: #d1d5db;
-      border-radius: 4px;
-    }
-
-    .chat-area::-webkit-scrollbar-thumb:hover {
-      background: #9ca3af;
-    }
-
-    /* 에스컬레이션 경고 */
-    .escalation-warning {
-      margin-top: 10px;
-      padding: 10px 12px;
-      background: #fef3c7;
-      border-left: 3px solid #f59e0b;
-      border-radius: 5px;
-      font-size: 12px;
-      color: #92400e;
-      line-height: 1.5;
-    }
-
-    /* 세션 정보 */
-    .session-info {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: white;
-      padding: 10px 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      font-size: 11px;
-      color: #666;
-      display: none;
-    }
-
-    .session-info.active {
-      display: block;
-    }
-
-    /* 코멘트 입력 모달 */
+    /* 모달 스타일 */
     .modal {
       display: none;
       position: fixed;
@@ -562,8 +473,8 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
       z-index: 1000;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
 
     .modal.active {
@@ -573,32 +484,42 @@
     .modal-content {
       background: white;
       padding: 30px;
-      border-radius: 15px;
+      border-radius: 20px;
       max-width: 500px;
       width: 90%;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
-    .modal-content h3 {
+    .modal-header {
+      font-size: 20px;
+      font-weight: 600;
       margin-bottom: 15px;
       color: #333;
     }
 
-    .modal-content textarea {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 14px;
-      resize: vertical;
-      min-height: 100px;
-      font-family: inherit;
+    .modal-body {
+      margin-bottom: 20px;
     }
 
-    .modal-buttons {
+    .modal-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .modal-textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .modal-footer {
       display: flex;
       gap: 10px;
-      margin-top: 15px;
       justify-content: flex-end;
     }
 
@@ -609,6 +530,7 @@
       cursor: pointer;
       font-size: 14px;
       font-weight: 600;
+      transition: all 0.2s;
     }
 
     .modal-btn-primary {
@@ -616,84 +538,158 @@
       color: white;
     }
 
+    .modal-btn-primary:hover {
+      background: #5568d3;
+    }
+
     .modal-btn-secondary {
-      background: #e0e0e0;
-      color: #333;
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .modal-btn-secondary:hover {
+      background: #d1d5db;
+    }
+
+    /* 설정 경고 배너 */
+    .setup-warning {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      color: #92400e;
+      padding: 15px 20px;
+      margin: 0;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .setup-warning.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        height: 100vh;
+        max-height: none;
+        border-radius: 0;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .message-content {
+        max-width: 85%;
+      }
+
+      .header-content h1 {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- 설정 경고 배너 -->
+  <div id="setupWarning" class="setup-warning">
+    ⚠️ Apps Script URL이 설정되지 않았습니다. 아래 스크립트의 SCRIPT_URL 변수를 설정해주세요.
+  </div>
+
   <div class="container">
     <!-- 헤더 -->
     <div class="header">
       <div class="header-icon">🎓</div>
       <div class="header-content">
         <h1>교무지원과 AI 상담 챗봇</h1>
-        <p>규정, 절차, 서류에 대해 24시간 문의하세요</p>
-      </div>
-      <div class="user-role-selector">
-        <button class="role-btn active" onclick="setUserRole('교수')">교수</button>
-        <button class="role-btn" onclick="setUserRole('조교')">조교</button>
+        <p>Google Drive 기반 문서 검색 및 AI 응답</p>
       </div>
       <div class="header-badges">
-        <div class="badge badge-ai">AI 기반</div>
-        <div class="badge badge-free">무료</div>
+        <span class="badge badge-ai">AI 기반</span>
+        <span class="badge badge-free">무료 API</span>
+      </div>
+    </div>
+
+    <!-- 사용자 역할 선택 -->
+    <div style="padding: 15px 30px; background: white; border-bottom: 1px solid #e5e7eb;">
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <span style="font-size: 14px; color: #666; font-weight: 500;">사용자 역할:</span>
+        <div class="user-role-selector">
+          <button class="role-btn active" onclick="setUserRole('교수')">교수</button>
+          <button class="role-btn" onclick="setUserRole('직원')">직원</button>
+          <button class="role-btn" onclick="setUserRole('학생')">학생</button>
+        </div>
       </div>
     </div>
 
     <!-- 채팅 영역 -->
     <div class="chat-area" id="chatArea">
-      <div class="welcome-message" id="welcomeMessage">
+      <div class="welcome-message">
         <h2>👋 안녕하세요!</h2>
         <p>교무지원과 AI 상담 챗봇입니다.</p>
-        <p>교원 인사, 근태, 평가, 연구 지원 등 교무 업무에 대해 문의해주세요.</p>
+        <p>교수 관련 업무(재임용, 승진, 휴직 등)에 대해 궁금하신 사항을 질문해주세요.</p>
         
         <div class="info-notice">
-          <strong>📌 이용 안내</strong>
-          <ul>
-            <li>모든 답변은 <strong>학교 규정 문서</strong>에 근거합니다</li>
-            <li>답변에는 항상 <strong>출처(파일명, 조항)</strong>가 표시됩니다</li>
-            <li><strong>개인정보</strong>(주민번호, 진단서 등)는 입력하지 마세요</li>
-            <li>복잡하거나 긴급한 사안은 <strong>담당자 연결</strong>을 이용하세요</li>
-            <li>이 챗봇의 답변은 <strong>참고용</strong>이며 법적 효력이 없습니다</li>
-          </ul>
+          <strong>📌 안내사항</strong><br>
+          - 이 챗봇은 Google Drive에 저장된 규정 문서를 기반으로 답변합니다<br>
+          - 답변은 참고용이며, 법적 효력은 없습니다<br>
+          - 민감한 개인정보는 입력하지 마세요<br>
+          - 복잡하거나 긴급한 사항은 담당자와 직접 상담하세요
         </div>
 
+        <div class="warning-notice" id="sensitiveWarning" style="display: none;">
+          <strong>⚠️ 개인정보 보호</strong><br>
+          주민등록번호, 계좌번호 등 민감한 개인정보는 입력하지 마세요!
+        </div>
+
+        <!-- FAQ 섹션 -->
         <div class="faq-section">
           <div class="faq-title">
-            <span>🔥</span>
-            <span>자주 묻는 질문 (인기순)</span>
+            <span>💡</span>
+            <span>자주 묻는 질문 (클릭하여 질문하기)</span>
           </div>
-          <div id="faqList" class="loading-faq">FAQ를 불러오는 중...</div>
+          <div class="faq-grid" id="faqList">
+            <!-- FAQ 항목이 여기에 동적으로 추가됩니다 -->
+            <div class="faq-item" style="justify-content: center; color: #999;">
+              <span>FAQ를 불러오는 중...</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 입력 영역 -->
     <div class="input-area">
-      <input 
-        type="text" 
-        id="userInput" 
-        placeholder="질문을 입력하세요... (예: 재임용 심사 기준은 어떻게 되나요?)"
-        onkeypress="handleKeyPress(event)"
-      />
-      <button id="sendBtn" onclick="sendMessage()">
-        <span id="btnText">전송</span>
-      </button>
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          class="input-field" 
+          id="userInput" 
+          placeholder="질문을 입력하세요... (예: 전임교원 승진임용 절차는?)"
+          onkeypress="if(event.key === 'Enter') sendMessage()"
+        >
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+          <span id="btnText">전송</span>
+          <span>📤</span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- 세션 정보 (디버깅용, 선택사항) -->
-  <div class="session-info" id="sessionInfo">
-    세션: <span id="sessionId">-</span>
-  </div>
-
-  <!-- 코멘트 입력 모달 -->
+  <!-- 피드백 코멘트 모달 -->
   <div class="modal" id="commentModal">
     <div class="modal-content">
-      <h3>📝 추가 의견을 남겨주세요</h3>
-      <textarea id="commentText" placeholder="어떤 점이 도움이 되지 않았나요? 구체적으로 알려주시면 개선에 도움이 됩니다."></textarea>
-      <div class="modal-buttons">
+      <div class="modal-header">💬 추가 의견을 알려주세요</div>
+      <div class="modal-body">
+        <p style="margin-bottom: 10px; color: #666; font-size: 14px;">
+          어떤 점이 도움이 되지 않았는지 알려주시면 개선에 반영하겠습니다.
+        </p>
+        <textarea 
+          class="modal-textarea" 
+          id="commentText" 
+          placeholder="예: 답변이 너무 길어요, 원하는 정보가 없어요, 오류가 있는 것 같아요 등"
+        ></textarea>
+      </div>
+      <div class="modal-footer">
         <button class="modal-btn modal-btn-secondary" onclick="closeCommentModal()">취소</button>
         <button class="modal-btn modal-btn-primary" onclick="submitComment()">제출</button>
       </div>
@@ -701,95 +697,137 @@
   </div>
 
   <script>
-    // ⚙️ 설정: Apps Script 배포 URL (여기에 입력하세요)
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyX8wzL4mf1H85ls_MefoNe-ImeZGJXZDcaWoKTYLg141cXYkMTNMkahF3_ayOySq4kPQ/exec';
+    // ============================================
+    // ⚙️ 설정
+    // ============================================
     
-    let isProcessing = false;
-    let currentMessageId = 0;
+    // 🔴 중요: 여기에 Apps Script 배포 URL을 입력하세요!
+    // Apps Script 편집기 → 배포 → 새 배포 → 웹 앱 → URL 복사
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyX78R6U5cU60jadpifqoWQqTozYaQzyvzI55hyspZSQuOA_xhQXXpjxiTkWSjQPFXs5A/exec'; // 예: 'https://script.google.com/macros/s/AKfycby.../exec'
+    
+    // ============================================
+    // 🌐 전역 변수
+    // ============================================
     let sessionId = generateSessionId();
-    let userRole = '교수';
+    let currentRole = '교수';
+    let currentMessageId = 0;
+    let isProcessing = false;
     let pendingCommentData = null;
+
+    // ============================================
+    // 🚀 초기화
+    // ============================================
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 챗봇 초기화 시작...');
+      
+      // URL 설정 확인
+      if (!SCRIPT_URL || SCRIPT_URL === '') {
+        document.getElementById('setupWarning').classList.add('active');
+        console.error('❌ SCRIPT_URL이 설정되지 않았습니다!');
+        document.getElementById('faqList').innerHTML = `
+          <div class="faq-item" style="grid-column: 1 / -1; background: #fee2e2; border-color: #ef4444; cursor: default;">
+            <div style="width: 100%; text-align: center;">
+              <strong style="color: #991b1b;">⚠️ 설정 필요</strong><br>
+              <span style="font-size: 13px; color: #991b1b;">
+                소스 코드에서 SCRIPT_URL 변수를 설정해주세요.<br>
+                Apps Script 편집기 → 배포 → 웹 앱 → URL 복사 후 붙여넣기
+              </span>
+            </div>
+          </div>
+        `;
+      } else {
+        console.log('✅ SCRIPT_URL 설정 완료:', SCRIPT_URL);
+        // FAQ 로드
+        loadFAQ();
+      }
+      
+      // 입력 필드에 포커스
+      document.getElementById('userInput').focus();
+    });
 
     // 세션 ID 생성
     function generateSessionId() {
       return 'sess_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
 
-    // 사용자 역할 설정
+    // 사용자 역할 변경
     function setUserRole(role) {
-      userRole = role;
+      currentRole = role;
       document.querySelectorAll('.role-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       event.target.classList.add('active');
+      console.log('사용자 역할 변경:', role);
     }
 
-    // 페이지 로드 시
-    window.onload = function() {
-      loadFAQ();
-      document.getElementById('userInput').focus();
-      
-      // 세션 정보 표시 (개발 모드)
-      // document.getElementById('sessionInfo').classList.add('active');
-      // document.getElementById('sessionId').textContent = sessionId.substr(0, 15) + '...';
-    };
-
-    // FAQ 불러오기
+    // ============================================
+    // 📋 FAQ 로드
+    // ============================================
     async function loadFAQ() {
-      const faqList = document.getElementById('faqList');
+      console.log('📋 FAQ 로드 시작...');
       
+      if (!SCRIPT_URL || SCRIPT_URL === '') {
+        console.error('SCRIPT_URL이 설정되지 않아 FAQ를 로드할 수 없습니다.');
+        return;
+      }
+
       try {
         const response = await fetch(SCRIPT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'getFAQ', limit: 5 }),
+          body: JSON.stringify({
+            action: 'getFAQ',
+            limit: 6
+          }),
           redirect: 'follow'
         });
 
         const data = await response.json();
+        console.log('FAQ 응답:', data);
 
         if (data.success && data.faqs && data.faqs.length > 0) {
+          const faqList = document.getElementById('faqList');
           faqList.innerHTML = '';
-          data.faqs.forEach((faq, index) => {
-            const faqDiv = document.createElement('div');
-            faqDiv.className = 'faq-item';
-            faqDiv.innerHTML = `
-              <div class="faq-rank">${index + 1}</div>
-              <div>${faq.question}</div>
+
+          data.faqs.forEach(faq => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item';
+            faqItem.onclick = function() {
+              // FAQ 구조: 순위, 질문, 답변, 조회수
+              document.getElementById('userInput').value = faq.질문;
+              sendMessage();
+            };
+            faqItem.innerHTML = `
+              <div class="faq-icon">❓</div>
+              <div class="faq-text">${faq.질문}</div>
             `;
-            faqDiv.onclick = () => askFAQ(faq.question);
-            faqList.appendChild(faqDiv);
+            faqList.appendChild(faqItem);
           });
+
+          console.log('✅ FAQ 로드 완료:', data.faqs.length + '개');
         } else {
-          faqList.innerHTML = '<div style="color: #999; text-align: center; padding: 20px;">등록된 FAQ가 없습니다.</div>';
+          console.warn('FAQ가 비어있거나 오류 발생:', data);
+          document.getElementById('faqList').innerHTML = `
+            <div class="faq-item" style="grid-column: 1 / -1; justify-content: center; background: #fef3c7; border-color: #f59e0b; cursor: default;">
+              <span style="color: #92400e;">FAQ를 불러올 수 없습니다. 관리자에게 문의하세요.</span>
+            </div>
+          `;
         }
       } catch (error) {
         console.error('FAQ 로드 오류:', error);
-        faqList.innerHTML = '<div style="color: #ef4444; text-align: center; padding: 20px;">FAQ를 불러올 수 없습니다.</div>';
+        document.getElementById('faqList').innerHTML = `
+          <div class="faq-item" style="grid-column: 1 / -1; justify-content: center; background: #fee2e2; border-color: #ef4444; cursor: default;">
+            <span style="color: #991b1b;">FAQ 로드 실패: ${error.message}</span>
+          </div>
+        `;
       }
     }
 
-    // FAQ 클릭
-    function askFAQ(question) {
-      document.getElementById('userInput').value = question;
-      sendMessage();
-    }
-
-    // 엔터키 처리
-    function handleKeyPress(event) {
-      if (event.key === 'Enter' && !isProcessing) {
-        sendMessage();
-      }
-    }
-
-    // 메시지 전송
+    // ============================================
+    // 💬 메시지 전송
+    // ============================================
     async function sendMessage() {
       if (isProcessing) return;
-
-      if (SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
-        alert('⚠️ Apps Script URL이 설정되지 않았습니다!\n\nindex.html 파일의 SCRIPT_URL 변수에 배포된 Apps Script URL을 입력해주세요.');
-        return;
-      }
 
       const input = document.getElementById('userInput');
       const question = input.value.trim();
@@ -799,19 +837,42 @@
         return;
       }
 
-      // UI 업데이트
+      if (!SCRIPT_URL || SCRIPT_URL === '') {
+        alert('⚠️ Apps Script URL이 설정되지 않았습니다.\n\n소스 코드에서 SCRIPT_URL 변수를 설정해주세요.');
+        return;
+      }
+
+      // 민감정보 간단 체크
+      const sensitivePatterns = [
+        /\d{6}[-\s]?\d{7}/,  // 주민등록번호
+        /\d{3}[-\s]?\d{3,4}[-\s]?\d{4}/,  // 전화번호 (더 유연하게)
+        /\d{10,16}/  // 계좌번호 (일반적 범위)
+      ];
+
+      let hasSensitive = false;
+      for (let pattern of sensitivePatterns) {
+        if (pattern.test(question)) {
+          hasSensitive = true;
+          break;
+        }
+      }
+
+      if (hasSensitive) {
+        document.getElementById('sensitiveWarning').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('sensitiveWarning').style.display = 'none';
+        }, 5000);
+        alert('⚠️ 주민등록번호, 계좌번호 등 민감한 개인정보는 입력하지 마세요!');
+        return;
+      }
+
       isProcessing = true;
       const sendBtn = document.getElementById('sendBtn');
       const btnText = document.getElementById('btnText');
-      btnText.innerHTML = '<div class="loading"></div>';
+      
       sendBtn.disabled = true;
       input.disabled = true;
-
-      // 환영 메시지 제거
-      const welcome = document.getElementById('welcomeMessage');
-      if (welcome) {
-        welcome.remove();
-      }
+      btnText.textContent = '전송 중...';
 
       // 사용자 메시지 추가
       addMessage(question, 'user');
@@ -821,7 +882,8 @@
       const typingId = addTypingIndicator();
 
       try {
-        // API 호출
+        console.log('메시지 전송:', { question, sessionId, currentRole });
+
         const response = await fetch(SCRIPT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -829,22 +891,19 @@
             action: 'chat',
             question: question,
             sessionId: sessionId,
-            userRole: userRole
+            userRole: currentRole
           }),
           redirect: 'follow'
         });
 
+        const data = await response.json();
+        console.log('응답 받음:', data);
+
         removeTypingIndicator(typingId);
 
-        if (!response.ok) {
-          throw new Error('API 응답 오류: ' + response.status);
-        }
-
-        const data = await response.json();
-
         if (data.success) {
-          // 민감정보 감지 시
-          if (data.sensitiveDetected) {
+          // 민감정보 감지된 경우
+          if (data.isSensitive) {
             addMessage(data.answer, 'bot', [], null, false, true);
           } else {
             // 일반 응답
@@ -1017,7 +1076,7 @@
         // 부정적 피드백 시 코멘트 요청
         if (feedback === 'not_helpful') {
           setTimeout(() => {
-            pendingCommentData = { messageId, rating };
+            pendingCommentData = { messageId, rating, question };
             openCommentModal();
           }, 500);
         }
