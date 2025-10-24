@@ -86,178 +86,222 @@
       color: #000;
     }
 
-    .user-role-selector {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 3px;
-      border-radius: 15px;
+    .main-content {
+      flex: 1;
       display: flex;
-      gap: 3px;
+      overflow: hidden;
     }
 
-    .role-btn {
-      padding: 5px 15px;
-      border: none;
-      background: transparent;
-      color: white;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 12px;
-      transition: all 0.2s;
+    .sidebar {
+      width: 280px;
+      background: #f9fafb;
+      border-right: 1px solid #e5e7eb;
+      padding: 20px;
+      overflow-y: auto;
+      flex-shrink: 0;
     }
 
-    .role-btn.active {
+    .sidebar h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
       background: white;
-      color: #667eea;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 13px;
+      color: #374151;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .faq-rank {
+      background: #667eea;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .faq-item:hover {
+      border-color: #667eea;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+      transform: translateY(-1px);
     }
 
     .chat-area {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: white;
+    }
+
+    .chat-messages {
+      flex: 1;
       overflow-y: auto;
-      padding: 30px;
-      background: #f8f9fa;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     .message {
-      margin-bottom: 20px;
       display: flex;
       gap: 12px;
-      animation: fadeIn 0.3s ease;
+      align-items: flex-start;
+      animation: fadeIn 0.3s ease-in;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .message.user {
       flex-direction: row-reverse;
     }
 
-    .message-avatar {
-      width: 40px;
-      height: 40px;
+    .avatar {
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
+      font-size: 18px;
     }
 
-    .message.user .message-avatar {
+    .message.bot .avatar {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
-    .message.bot .message-avatar {
-      background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+    .message.user .avatar {
+      background: #f3f4f6;
     }
 
     .message-content {
-      max-width: 75%;
-      padding: 15px 20px;
-      border-radius: 18px;
-      line-height: 1.6;
-      word-wrap: break-word;
+      flex: 1;
+      max-width: 70%;
     }
 
     .message.user .message-content {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 18px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .message.bot .message-bubble {
+      background: #f3f4f6;
+      color: #1f2937;
+      border-bottom-left-radius: 4px;
+    }
+
+    .message.user .message-bubble {
+      background: #667eea;
       color: white;
       border-bottom-right-radius: 4px;
     }
 
-    .message.bot .message-content {
-      background: white;
-      color: #333;
-      border: 1px solid #e0e0e0;
-      border-bottom-left-radius: 4px;
+    .message-meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      font-size: 11px;
+      color: #9ca3af;
+      align-items: center;
     }
 
-    .message-sources {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid #e0e0e0;
-      font-size: 13px;
-      color: #666;
-    }
-
-    .message-sources strong {
-      color: #667eea;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .source-tag {
-      display: inline-block;
-      background: #eef2ff;
-      padding: 4px 10px;
+    .confidence-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
       border-radius: 12px;
-      margin: 3px;
-      font-size: 12px;
-      color: #4f46e5;
+      font-size: 11px;
+      font-weight: 600;
     }
 
-    .confidence-indicator {
-      margin-top: 10px;
-      padding: 10px;
+    .confidence-high { background: #d1fae5; color: #065f46; }
+    .confidence-medium { background: #fef3c7; color: #92400e; }
+    .confidence-low { background: #fee2e2; color: #991b1b; }
+
+    .sources {
+      margin-top: 12px;
+      padding: 12px;
+      background: white;
+      border: 1px solid #e5e7eb;
       border-radius: 8px;
-      font-size: 13px;
+    }
+
+    .sources-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .source-item {
+      padding: 6px 10px;
+      background: #f9fafb;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #374151;
+      margin-top: 4px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .confidence-high {
-      background: #d1fae5;
-      color: #065f46;
-    }
-
-    .confidence-medium {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .confidence-low {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .escalation-warning {
-      margin-top: 10px;
-      padding: 12px;
-      background: #fef3c7;
-      border-left: 4px solid #f59e0b;
-      border-radius: 5px;
-      font-size: 13px;
-      color: #92400e;
+    .source-category {
+      background: #667eea;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
     }
 
     .feedback-buttons {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid #e0e0e0;
       display: flex;
       gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .feedback-label {
-      font-size: 12px;
-      color: #999;
+      margin-top: 10px;
     }
 
     .feedback-btn {
       padding: 6px 12px;
-      border: 1px solid #e0e0e0;
+      border: 1px solid #e5e7eb;
       background: white;
-      border-radius: 15px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 12px;
       transition: all 0.2s;
@@ -267,230 +311,98 @@
     }
 
     .feedback-btn:hover {
-      background: #f8f9fa;
       border-color: #667eea;
+      background: #f3f4f6;
     }
 
-    .feedback-btn.selected {
-      background: #667eea;
-      color: white;
-      border-color: #667eea;
+    .feedback-btn.positive:hover { color: #10b981; border-color: #10b981; }
+    .feedback-btn.negative:hover { color: #ef4444; border-color: #ef4444; }
+    .feedback-btn.escalate { color: #f59e0b; }
+    .feedback-btn.escalate:hover { border-color: #f59e0b; background: #fffbeb; }
+
+    .chat-input-area {
+      padding: 20px 25px;
+      border-top: 1px solid #e5e7eb;
+      background: #f9fafb;
     }
 
-    .escalate-btn {
-      padding: 6px 12px;
-      background: #ef4444;
-      color: white;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      font-size: 12px;
-      margin-left: auto;
-    }
-
-    .escalate-btn:hover {
-      background: #dc2626;
-    }
-
-    .welcome-message {
-      text-align: center;
-      padding: 40px 20px;
-      color: #666;
-    }
-
-    .welcome-message h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #333;
-    }
-
-    .welcome-message p {
-      font-size: 16px;
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-
-    .info-notice {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
-      padding: 20px;
-      margin: 30px auto;
-      max-width: 700px;
-      text-align: left;
-      border-radius: 8px;
-    }
-
-    .info-notice strong {
-      color: #1e40af;
-      font-size: 16px;
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .info-notice ul {
-      list-style-position: inside;
-      color: #475569;
-      font-size: 14px;
-      line-height: 2;
-    }
-
-    .faq-section {
-      max-width: 700px;
-      margin: 30px auto;
-      text-align: left;
-    }
-
-    .faq-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    .faq-title span:first-child {
-      font-size: 24px;
-    }
-
-    #faqList {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .faq-item {
-      background: white;
-      padding: 15px 20px;
-      border-radius: 12px;
-      border: 2px solid #e0e0e0;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .faq-item:hover {
-      border-color: #667eea;
-      background: #f8f9ff;
-      transform: translateX(5px);
-    }
-
-    .faq-rank {
-      width: 30px;
-      height: 30px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    .loading-faq {
-      text-align: center;
-      padding: 40px;
-      color: #999;
-      font-size: 14px;
-    }
-
-    .input-area {
-      padding: 20px 30px;
-      background: white;
-      border-top: 1px solid #e0e0e0;
+    .input-container {
       display: flex;
       gap: 12px;
+      align-items: flex-end;
+    }
+
+    .input-wrapper {
+      flex: 1;
+      position: relative;
     }
 
     #userInput {
-      flex: 1;
-      padding: 15px 20px;
-      border: 2px solid #e0e0e0;
-      border-radius: 25px;
-      font-size: 15px;
-      outline: none;
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 14px;
+      resize: none;
+      font-family: inherit;
       transition: all 0.2s;
+      min-height: 50px;
+      max-height: 120px;
     }
 
     #userInput:focus {
+      outline: none;
       border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
     #sendBtn {
-      padding: 15px 35px;
+      padding: 14px 24px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      border-radius: 25px;
-      font-size: 15px;
-      font-weight: 600;
+      border-radius: 12px;
       cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
       transition: all 0.2s;
-      min-width: 100px;
+      white-space: nowrap;
     }
 
     #sendBtn:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
     }
 
     #sendBtn:disabled {
-      opacity: 0.6;
+      opacity: 0.5;
       cursor: not-allowed;
-    }
-
-    .loading {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-top-color: white;
-      border-radius: 50%;
-      animation: spin 0.6s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
     }
 
     .typing-indicator {
       display: flex;
-      gap: 6px;
-      padding: 15px 0;
+      gap: 4px;
+      padding: 14px 18px;
+      background: #f3f4f6;
+      border-radius: 18px;
+      border-bottom-left-radius: 4px;
+      width: fit-content;
     }
 
     .typing-dot {
       width: 8px;
       height: 8px;
-      background: #999;
       border-radius: 50%;
-      animation: bounce 1.4s infinite ease-in-out;
+      background: #9ca3af;
+      animation: typing 1.4s infinite;
     }
 
-    .typing-dot:nth-child(1) {
-      animation-delay: -0.32s;
-    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
-    .typing-dot:nth-child(2) {
-      animation-delay: -0.16s;
-    }
-
-    @keyframes bounce {
-      0%, 80%, 100% {
-        transform: scale(0.8);
-        opacity: 0.5;
-      }
-      40% {
-        transform: scale(1);
-        opacity: 1;
-      }
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
     }
 
     .modal {
@@ -500,10 +412,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 1000;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
     .modal.active {
@@ -512,48 +425,66 @@
 
     .modal-content {
       background: white;
+      border-radius: 16px;
       padding: 30px;
-      border-radius: 15px;
       max-width: 500px;
-      width: 90%;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-content h3 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .modal-content textarea {
       width: 100%;
-      min-height: 120px;
-      padding: 15px;
-      border: 2px solid #e0e0e0;
-      border-radius: 10px;
-      font-size: 14px;
-      font-family: inherit;
-      resize: vertical;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
-    .modal-content textarea:focus {
-      outline: none;
-      border-color: #667eea;
+    .modal-header {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #1f2937;
+    }
+
+    .rating-stars {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .star {
+      font-size: 32px;
+      cursor: pointer;
+      color: #d1d5db;
+      transition: all 0.2s;
+    }
+
+    .star:hover,
+    .star.active {
+      color: #fbbf24;
+      transform: scale(1.2);
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      resize: vertical;
+      min-height: 100px;
     }
 
     .modal-buttons {
       display: flex;
       gap: 10px;
-      margin-top: 15px;
-      justify-content: flex-end;
+      margin-top: 20px;
     }
 
     .modal-btn {
-      padding: 10px 20px;
+      flex: 1;
+      padding: 12px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 14px;
       font-weight: 600;
+      transition: all 0.2s;
     }
 
     .modal-btn-primary {
@@ -561,25 +492,37 @@
       color: white;
     }
 
+    .modal-btn-primary:hover {
+      background: #5568d3;
+    }
+
     .modal-btn-secondary {
-      background: #e0e0e0;
-      color: #333;
+      background: #f3f4f6;
+      color: #374151;
     }
 
-    .session-info {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 11px;
-      display: none;
+    .modal-btn-secondary:hover {
+      background: #e5e7eb;
     }
 
-    .session-info.active {
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
       display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
     }
 
     @media (max-width: 768px) {
@@ -589,136 +532,153 @@
         border-radius: 0;
       }
 
-      .header {
-        padding: 20px;
+      .main-content {
+        flex-direction: column;
       }
 
-      .header-content h1 {
-        font-size: 20px;
-      }
-
-      .chat-area {
-        padding: 20px;
+      .sidebar {
+        width: 100%;
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
       }
 
       .message-content {
         max-width: 85%;
-      }
-
-      .input-area {
-        padding: 15px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- 헤더 -->
+    <!-- Header -->
     <div class="header">
       <div class="header-icon">🎓</div>
       <div class="header-content">
         <h1>교무지원과 AI 상담 챗봇</h1>
-        <p>규정, 절차, 서류에 대해 24시간 문의하세요</p>
-      </div>
-      <div class="user-role-selector">
-        <button class="role-btn active" onclick="setUserRole('교수')">교수</button>
-        <button class="role-btn" onclick="setUserRole('조교')">조교</button>
+        <p>AI 기반 규정 검색 및 상담 서비스 (v1.2 - CORS Free)</p>
       </div>
       <div class="header-badges">
-        <div class="badge badge-ai">AI 기반</div>
-        <div class="badge badge-free">무료</div>
+        <span class="badge badge-ai">✨ AI</span>
+        <span class="badge badge-free">🔓 무료</span>
       </div>
     </div>
 
-    <!-- 채팅 영역 -->
-    <div class="chat-area" id="chatArea">
-      <div class="welcome-message" id="welcomeMessage">
-        <h2>👋 안녕하세요!</h2>
-        <p>교무지원과 AI 상담 챗봇입니다.</p>
-        <p>교원 인사, 근태, 평가, 연구 지원 등 교무 업무에 대해 문의해주세요.</p>
-        
-        <div class="info-notice">
-          <strong>📌 이용 안내</strong>
-          <ul>
-            <li>모든 답변은 <strong>학교 규정 문서</strong>에 근거합니다</li>
-            <li>답변에는 항상 <strong>출처(파일명, 조항)</strong>가 표시됩니다</li>
-            <li><strong>개인정보</strong>(주민번호, 진단서 등)는 입력하지 마세요</li>
-            <li>복잡하거나 긴급한 사안은 <strong>담당자 연결</strong>을 이용하세요</li>
-            <li>이 챗봇의 답변은 <strong>참고용</strong>이며 법적 효력이 없습니다</li>
-          </ul>
-        </div>
-
-        <div class="faq-section">
-          <div class="faq-title">
-            <span>🔥</span>
-            <span>자주 묻는 질문 (인기순)</span>
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Sidebar: FAQ -->
+      <div class="sidebar">
+        <h3>
+          <span>💡</span>
+          자주 묻는 질문
+        </h3>
+        <div id="faqList" class="faq-list">
+          <div style="color: #9ca3af; text-align: center; padding: 20px; font-size: 13px;">
+            FAQ 로딩 중...
           </div>
-          <div id="faqList" class="loading-faq">FAQ를 불러오는 중...</div>
+        </div>
+      </div>
+
+      <!-- Chat Area -->
+      <div class="chat-area">
+        <div id="chatMessages" class="chat-messages">
+          <!-- Welcome Message -->
+          <div class="message bot">
+            <div class="avatar">🤖</div>
+            <div class="message-content">
+              <div class="message-bubble">
+                안녕하세요! 교무지원과 AI 상담 챗봇입니다. 😊<br><br>
+                교원 인사, 규정, 업무 절차 등에 대해 질문해주세요.<br>
+                왼쪽의 자주 묻는 질문을 클릭하거나 직접 질문을 입력하실 수 있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+          <div class="input-container">
+            <div class="input-wrapper">
+              <textarea
+                id="userInput"
+                placeholder="질문을 입력하세요... (Enter로 전송, Shift+Enter로 줄바꿈)"
+                onkeypress="handleKeyPress(event)"
+              ></textarea>
+            </div>
+            <button id="sendBtn" onclick="sendMessage()">
+              전송
+            </button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 입력 영역 -->
-    <div class="input-area">
-      <input 
-        type="text" 
-        id="userInput" 
-        placeholder="질문을 입력하세요... (예: 재임용 심사 기준은 어떻게 되나요?)"
-        onkeypress="handleKeyPress(event)"
-      />
-      <button id="sendBtn" onclick="sendMessage()">
-        <span id="btnText">전송</span>
-      </button>
+  <!-- Feedback Modal -->
+  <div id="feedbackModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">답변이 도움이 되셨나요?</div>
+      <div class="rating-stars" id="ratingStars">
+        <span class="star" onclick="setRating(1)">★</span>
+        <span class="star" onclick="setRating(2)">★</span>
+        <span class="star" onclick="setRating(3)">★</span>
+        <span class="star" onclick="setRating(4)">★</span>
+        <span class="star" onclick="setRating(5)">★</span>
+      </div>
+      <textarea id="feedbackComment" placeholder="의견을 남겨주세요 (선택사항)"></textarea>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-btn-secondary" onclick="closeFeedbackModal()">취소</button>
+        <button class="modal-btn modal-btn-primary" onclick="submitFeedback()">제출</button>
+      </div>
     </div>
   </div>
 
-  <!-- 세션 정보 (디버깅용, 선택사항) -->
-  <div class="session-info" id="sessionInfo">
-    세션: <span id="sessionId">-</span>
-  </div>
-
-  <!-- 코멘트 입력 모달 -->
-  <div class="modal" id="commentModal">
+  <!-- Escalation Modal -->
+  <div id="escalationModal" class="modal">
     <div class="modal-content">
-      <h3>📝 추가 의견을 남겨주세요</h3>
-      <textarea id="commentText" placeholder="어떤 점이 도움이 되지 않았나요? 구체적으로 알려주시면 개선에 도움이 됩니다."></textarea>
+      <div class="modal-header">담당자 연결 요청</div>
+      <p style="color: #6b7280; font-size: 14px; margin-bottom: 20px;">
+        담당자가 직접 답변드릴 수 있도록 연락처를 남겨주세요.
+      </p>
+      <div class="input-group">
+        <label>이메일</label>
+        <input type="email" id="escalationEmail" placeholder="example@university.ac.kr">
+      </div>
+      <div class="input-group">
+        <label>전화번호 (선택)</label>
+        <input type="tel" id="escalationPhone" placeholder="010-0000-0000">
+      </div>
       <div class="modal-buttons">
-        <button class="modal-btn modal-btn-secondary" onclick="closeCommentModal()">취소</button>
-        <button class="modal-btn modal-btn-primary" onclick="submitComment()">제출</button>
+        <button class="modal-btn modal-btn-secondary" onclick="closeEscalationModal()">취소</button>
+        <button class="modal-btn modal-btn-primary" onclick="submitEscalation()">요청하기</button>
       </div>
     </div>
   </div>
 
   <script>
-    // ⚙️ 설정: Apps Script 배포 URL (여기에 입력하세요!)
-    // Apps Script > 배포 > 새 배포 > 웹 앱으로 배포 > URL 복사
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBkt9dz80lKOf5ius8JoVd-NzAZ-7GXgnAEZILMWq_x7SkezPHYnDWdJV30xLe49JZHw/exec';  // 여기에 배포된 URL을 입력하세요
-    
-    let isProcessing = false;
-    let currentMessageId = 0;
-    let sessionId = generateSessionId();
-    let userRole = '교수';
-    let pendingCommentData = null;
+    // ==================== 설정 ====================
+    // ⚠️ 배포된 Apps Script URL을 여기에 입력하세요!
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxIo-f51qsXQnM7vf_GNc1Csv-dGiTPtaKA0KIVruh4q_dOEPfkEyp22QpEH45zQ5nMbQ/exec';  // 예: https://script.google.com/macros/s/AKfycby.../exec
 
-    // 세션 ID 생성
+    // ==================== 전역 변수 ====================
+    const sessionId = generateSessionId();
+    let pendingFeedback = null;
+    let pendingEscalation = null;
+    let currentRating = 0;
+
+    // ==================== 유틸리티 함수 ====================
     function generateSessionId() {
       return 'sess_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
 
-    // 사용자 역할 설정
-    function setUserRole(role) {
-      userRole = role;
-      document.querySelectorAll('.role-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
+    function generateMessageId() {
+      return 'msg_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
 
-    // 페이지 로드 시
+    // ==================== 페이지 로드 ====================
     window.onload = function() {
-      // URL 확인
       if (!SCRIPT_URL) {
-        showError('⚠️ 설정 필요\n\nindex.html 파일의 SCRIPT_URL 변수에\nApps Script 배포 URL을 입력해주세요.\n\n배포 방법:\n1. Apps Script 편집기 열기\n2. 배포 > 새 배포\n3. 유형: 웹 앱\n4. 액세스: 모든 사용자\n5. 배포 후 URL 복사하여 붙여넣기');
+        showError('⚠️ 설정 필요\n\nSCRIPT_URL 변수에 배포된 Apps Script URL을 입력해주세요.\n\n배포 방법:\n1. Apps Script 편집기\n2. 배포 > 새 배포\n3. 유형: 웹 앱\n4. 액세스: 모든 사용자\n5. URL 복사하여 붙여넣기');
       } else {
         loadFAQ();
         document.getElementById('userInput').focus();
@@ -727,10 +687,10 @@
 
     function showError(message) {
       const faqList = document.getElementById('faqList');
-      faqList.innerHTML = '<div style="color: #ef4444; background: #fee2e2; padding: 20px; border-radius: 10px; white-space: pre-line; font-size: 13px; line-height: 1.8;">' + message + '</div>';
+      faqList.innerHTML = '<div style="color: #ef4444; background: #fee2e2; padding: 15px; border-radius: 8px; white-space: pre-line; font-size: 12px; line-height: 1.6;">' + message + '</div>';
     }
 
-    // FAQ 불러오기
+    // ==================== FAQ 로딩 (GET 방식) ====================
     async function loadFAQ() {
       const faqList = document.getElementById('faqList');
       
@@ -738,29 +698,25 @@
         console.log('FAQ 로딩 시작...');
         console.log('SCRIPT_URL:', SCRIPT_URL);
         
-        const response = await fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ 
-            action: 'getFAQ', 
-            limit: 5 
-          }),
-          mode: 'cors',  // CORS 모드 명시
+        // ⭐ GET 방식으로 변경 (preflight 회피)
+        const url = `${SCRIPT_URL}?action=getFAQ&limit=5`;
+        
+        const response = await fetch(url, {
+          method: 'GET',
+          mode: 'cors',
           cache: 'no-cache'
         });
-
+        
         console.log('Response status:', response.status);
         console.log('Response ok:', response.ok);
-
+        
         if (!response.ok) {
           throw new Error('API 응답 오류: ' + response.status);
         }
-
+        
         const data = await response.json();
         console.log('FAQ 데이터:', data);
-
+        
         if (data.success && data.faqs && data.faqs.length > 0) {
           faqList.innerHTML = '';
           data.faqs.forEach((faq, index) => {
@@ -775,20 +731,21 @@
           });
           console.log('FAQ ' + data.faqs.length + '개 표시 완료');
         } else {
-          faqList.innerHTML = '<div style="color: #999; text-align: center; padding: 20px;">등록된 FAQ가 없습니다.</div>';
+          faqList.innerHTML = '<div style="color: #999; text-align: center; padding: 20px; font-size: 13px;">등록된 FAQ가 없습니다.</div>';
         }
+        
       } catch (error) {
         console.error('FAQ 로드 오류:', error);
         
         let errorMsg = 'FAQ를 불러올 수 없습니다.';
         
         if (error.message.includes('Failed to fetch')) {
-          errorMsg += '<br><br>📌 확인사항:<br>1. Apps Script가 배포되었나요?<br>2. SCRIPT_URL이 올바른가요?<br>3. 배포 시 "액세스" 설정이 "모든 사용자"인가요?';
+          errorMsg += '<br><br>📌 확인사항:<br>1. Apps Script 배포 완료?<br>2. SCRIPT_URL 정확?<br>3. 액세스: 모든 사용자?';
         } else {
           errorMsg += '<br><br>오류: ' + error.message;
         }
         
-        faqList.innerHTML = '<div style="color: #ef4444; text-align: center; padding: 20px; line-height: 1.8;">' + errorMsg + '</div>';
+        faqList.innerHTML = '<div style="color: #ef4444; text-align: center; padding: 15px; line-height: 1.6; font-size: 12px;">' + errorMsg + '</div>';
       }
     }
 
@@ -798,386 +755,320 @@
       sendMessage();
     }
 
-    // 엔터키 처리
+    // ==================== 메시지 전송 (POST - URLSearchParams) ====================
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const question = input.value.trim();
+      
+      if (!question) return;
+      
+      // 사용자 메시지 추가
+      addMessage('user', question);
+      input.value = '';
+      
+      // 입력창 높이 초기화
+      input.style.height = '50px';
+      
+      // 타이핑 인디케이터 추가
+      const typingId = addTypingIndicator();
+      
+      try {
+        console.log('메시지 전송:', question);
+        
+        // ⭐ URLSearchParams 사용 (preflight 회피)
+        const formData = new URLSearchParams();
+        formData.append('action', 'chat');
+        formData.append('question', question);
+        formData.append('sessionId', sessionId);
+        formData.append('userRole', 'faculty');
+        
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: formData,  // application/x-www-form-urlencoded
+          mode: 'cors',
+          cache: 'no-cache'
+        });
+        
+        // 타이핑 인디케이터 제거
+        removeTypingIndicator(typingId);
+        
+        if (!response.ok) {
+          throw new Error('API 응답 오류: ' + response.status);
+        }
+        
+        const data = await response.json();
+        console.log('응답 데이터:', data);
+        
+        if (data.success) {
+          addMessage('bot', data.answer, {
+            sources: data.sources || [],
+            confidence: data.confidence || 0.5,
+            messageId: data.messageId || generateMessageId()
+          });
+        } else if (data.filtered) {
+          addMessage('bot', data.error, { isError: true });
+        } else {
+          throw new Error(data.error || '알 수 없는 오류');
+        }
+        
+      } catch (error) {
+        console.error('Error:', error);
+        removeTypingIndicator(typingId);
+        addMessage('bot', '죄송합니다. 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.\n\n오류: ' + error.message, { isError: true });
+      }
+    }
+
+    // 키 입력 처리
     function handleKeyPress(event) {
-      if (event.key === 'Enter' && !isProcessing) {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
         sendMessage();
       }
     }
 
-    // 메시지 전송
-    async function sendMessage() {
-      if (isProcessing) return;
-
-      if (!SCRIPT_URL) {
-        alert('⚠️ Apps Script URL이 설정되지 않았습니다!\n\nindex.html 파일의 SCRIPT_URL 변수에 배포된 Apps Script URL을 입력해주세요.');
-        return;
-      }
-
-      const input = document.getElementById('userInput');
-      const question = input.value.trim();
-
-      if (!question) {
-        alert('질문을 입력해주세요.');
-        return;
-      }
-
-      // UI 업데이트
-      isProcessing = true;
-      const sendBtn = document.getElementById('sendBtn');
-      const btnText = document.getElementById('btnText');
-      btnText.innerHTML = '<div class="loading"></div>';
-      sendBtn.disabled = true;
-      input.disabled = true;
-
-      // 환영 메시지 제거
-      const welcome = document.getElementById('welcomeMessage');
-      if (welcome) {
-        welcome.remove();
-      }
-
-      // 사용자 메시지 추가
-      addMessage(question, 'user');
-      input.value = '';
-
-      // 타이핑 인디케이터
-      const typingId = addTypingIndicator();
-
-      try {
-        console.log('메시지 전송:', question);
-        
-        // API 호출
-        const response = await fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            action: 'chat',
-            question: question,
-            sessionId: sessionId,
-            userRole: userRole
-          }),
-          mode: 'cors',
-          cache: 'no-cache'
-        });
-
-        removeTypingIndicator(typingId);
-
-        console.log('응답 상태:', response.status);
-
-        if (!response.ok) {
-          throw new Error('API 응답 오류: ' + response.status);
-        }
-
-        const data = await response.json();
-        console.log('응답 데이터:', data);
-
-        if (data.success) {
-          // 민감정보 감지 시
-          if (data.sensitiveDetected) {
-            addMessage(data.answer, 'bot', [], null, false, true);
-          } else {
-            // 일반 응답
-            const messageId = addMessage(
-              data.answer, 
-              'bot', 
-              data.sources || [], 
-              data.confidence,
-              data.requiresEscalation,
-              false
-            );
-            
-            // 피드백 버튼 추가
-            addFeedbackButtons(messageId, question);
-          }
-        } else {
-          throw new Error(data.error || '알 수 없는 오류');
-        }
-
-      } catch (error) {
-        removeTypingIndicator(typingId);
-        
-        let errorMessage = '죄송합니다. 응답을 가져오는 중 오류가 발생했습니다.\n\n';
-        
-        if (error.message.includes('Failed to fetch')) {
-          errorMessage += '🌐 네트워크 오류입니다.\n\n확인사항:\n• Apps Script가 배포되었나요?\n• URL이 올바른가요?\n• 배포 설정에서 "액세스: 모든 사용자"로 설정했나요?';
-        } else {
-          errorMessage += '📝 오류: ' + error.message + '\n\n담당자 연락: 교무지원과 내선 1234';
-        }
-        
-        addMessage(errorMessage, 'bot', []);
-        console.error('Error:', error);
-      } finally {
-        isProcessing = false;
-        btnText.textContent = '전송';
-        sendBtn.disabled = false;
-        input.disabled = false;
-        input.focus();
-      }
-    }
-
-    // 메시지 추가
-    function addMessage(text, type, sources = [], confidence = null, requiresEscalation = false, isSensitive = false) {
-      const chatArea = document.getElementById('chatArea');
-      const messageId = ++currentMessageId;
-      
+    // ==================== 메시지 추가 ====================
+    function addMessage(sender, text, options = {}) {
+      const chatMessages = document.getElementById('chatMessages');
       const messageDiv = document.createElement('div');
-      messageDiv.className = `message ${type}`;
-      messageDiv.id = `message-${messageId}`;
-
-      const avatar = document.createElement('div');
-      avatar.className = 'message-avatar';
-      avatar.textContent = type === 'user' ? '👤' : '🤖';
-
-      const content = document.createElement('div');
-      content.className = 'message-content';
+      messageDiv.className = `message ${sender}`;
       
-      const formattedText = text.replace(/\n/g, '<br>');
-      content.innerHTML = formattedText;
-
-      // 신뢰도 표시
-      if (!isSensitive && confidence !== null && type === 'bot') {
-        const confidenceDiv = document.createElement('div');
-        let confidenceClass = 'confidence-high';
-        let confidenceText = '높은 신뢰도';
-        let confidenceIcon = '✅';
+      const time = new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+      
+      if (sender === 'user') {
+        messageDiv.innerHTML = `
+          <div class="avatar">👤</div>
+          <div class="message-content">
+            <div class="message-bubble">${escapeHtml(text)}</div>
+            <div class="message-meta">
+              <span>${time}</span>
+            </div>
+          </div>
+        `;
+      } else {
+        let confidenceBadge = '';
+        let confidenceClass = '';
         
-        if (confidence < 0.5) {
-          confidenceClass = 'confidence-low';
-          confidenceText = '낮은 신뢰도 - 담당자 문의 권장';
-          confidenceIcon = '⚠️';
-        } else if (confidence < 0.7) {
-          confidenceClass = 'confidence-medium';
-          confidenceText = '중간 신뢰도 - 추가 확인 권장';
-          confidenceIcon = '⚡';
-        }
-        
-        confidenceDiv.className = `confidence-indicator ${confidenceClass}`;
-        confidenceDiv.innerHTML = `${confidenceIcon} ${confidenceText} (${(confidence * 100).toFixed(0)}%)`;
-        content.appendChild(confidenceDiv);
-      }
-
-      // 에스컬레이션 경고
-      if (requiresEscalation) {
-        const escalationDiv = document.createElement('div');
-        escalationDiv.className = 'escalation-warning';
-        escalationDiv.innerHTML = '⚠️ 이 질문은 전문 상담이 필요할 수 있습니다.<br>정확한 답변을 위해 교무지원과 담당자와 상담하시는 것을 권장드립니다.';
-        content.appendChild(escalationDiv);
-      }
-
-      // 출처 추가
-      if (sources && sources.length > 0 && !isSensitive) {
-        const sourcesDiv = document.createElement('div');
-        sourcesDiv.className = 'message-sources';
-        sourcesDiv.innerHTML = '<strong>📚 참고 문서 (근거):</strong>';
-        
-        sources.forEach(source => {
-          const tag = document.createElement('span');
-          tag.className = 'source-tag';
-          tag.textContent = typeof source === 'string' ? source : `${source.filename} (${source.category})`;
-          sourcesDiv.appendChild(tag);
-        });
-        
-        content.appendChild(sourcesDiv);
-      }
-
-      messageDiv.appendChild(avatar);
-      messageDiv.appendChild(content);
-      chatArea.appendChild(messageDiv);
-
-      chatArea.scrollTop = chatArea.scrollHeight;
-      
-      return messageId;
-    }
-
-    // 피드백 버튼 추가
-    function addFeedbackButtons(messageId, question) {
-      const messageDiv = document.getElementById(`message-${messageId}`);
-      if (!messageDiv) return;
-
-      const content = messageDiv.querySelector('.message-content');
-      const feedbackDiv = document.createElement('div');
-      feedbackDiv.className = 'feedback-buttons';
-      feedbackDiv.innerHTML = `
-        <span class="feedback-label">이 답변이 도움이 되셨나요?</span>
-        <button class="feedback-btn" onclick="sendFeedback(${messageId}, '${escapeQuotes(question)}', 'helpful', 5)">
-          👍 유용함
-        </button>
-        <button class="feedback-btn" onclick="sendFeedback(${messageId}, '${escapeQuotes(question)}', 'not_helpful', 2)">
-          👎 유용하지 않음
-        </button>
-        <button class="escalate-btn" onclick="escalateToHuman('${escapeQuotes(question)}')">
-          👤 담당자 연결
-        </button>
-      `;
-      content.appendChild(feedbackDiv);
-    }
-
-    // 따옴표 이스케이프
-    function escapeQuotes(str) {
-      return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
-    }
-
-    // 피드백 전송
-    async function sendFeedback(messageId, question, feedback, rating) {
-      const messageDiv = document.getElementById(`message-${messageId}`);
-      const buttons = messageDiv.querySelectorAll('.feedback-btn');
-      
-      buttons.forEach(btn => {
-        btn.classList.remove('selected');
-        btn.disabled = true;
-      });
-      
-      event.target.classList.add('selected');
-
-      try {
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            action: 'feedback',
-            sessionId: sessionId,
-            messageId: messageId,
-            feedback: feedback,
-            rating: rating
-          }),
-          mode: 'cors'
-        });
-
-        // 부정적 피드백 시 코멘트 요청
-        if (feedback === 'not_helpful') {
-          setTimeout(() => {
-            pendingCommentData = { messageId, rating, question };
-            openCommentModal();
-          }, 500);
-        }
-      } catch (error) {
-        console.error('피드백 전송 오류:', error);
-      }
-    }
-
-    // 코멘트 모달 열기
-    function openCommentModal() {
-      document.getElementById('commentModal').classList.add('active');
-      document.getElementById('commentText').value = '';
-      document.getElementById('commentText').focus();
-    }
-
-    // 코멘트 모달 닫기
-    function closeCommentModal() {
-      document.getElementById('commentModal').classList.remove('active');
-      pendingCommentData = null;
-    }
-
-    // 코멘트 제출
-    async function submitComment() {
-      const comment = document.getElementById('commentText').value.trim();
-      
-      if (!comment) {
-        alert('의견을 입력해주세요.');
-        return;
-      }
-
-      if (!pendingCommentData) {
-        closeCommentModal();
-        return;
-      }
-
-      try {
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            action: 'feedback',
-            sessionId: sessionId,
-            messageId: pendingCommentData.messageId,
-            feedback: 'not_helpful',
-            rating: pendingCommentData.rating,
-            comment: comment
-          }),
-          mode: 'cors'
-        });
-
-        alert('✅ 소중한 의견 감사합니다!\n더 나은 서비스를 위해 반영하겠습니다.');
-        closeCommentModal();
-
-        // 담당자 연결 제안
-        setTimeout(() => {
-          if (confirm('답변이 도움이 되지 않으셨나요?\n교무지원과 담당자와 연결하시겠습니까?')) {
-            escalateToHuman(pendingCommentData.question);
-          }
-        }, 500);
-
-      } catch (error) {
-        console.error('코멘트 전송 오류:', error);
-        alert('코멘트 전송 중 오류가 발생했습니다.');
-      }
-    }
-
-    // 담당자 연결
-    function escalateToHuman(question) {
-      const message = `📞 담당자 연결 요청\n\n질문: ${question}\n\n교무지원과 담당자에게 연결하시겠습니까?\n티켓이 생성되고 담당자가 확인 후 연락드립니다.`;
-      
-      if (confirm(message)) {
-        fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            action: 'escalate',
-            sessionId: sessionId,
-            question: question,
-            reason: '사용자 요청'
-          }),
-          mode: 'cors'
-        }).then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            alert(`✅ 담당자에게 전달되었습니다.\n\n티켓 번호: ${data.ticketId}\n곧 연락드리겠습니다.\n\n긴급한 경우 교무지원과(내선 1234)로 직접 연락해주세요.`);
+        if (options.confidence) {
+          if (options.confidence >= 0.8) {
+            confidenceClass = 'confidence-high';
+            confidenceBadge = '<span class="confidence-badge ' + confidenceClass + '">✓ 신뢰도 높음</span>';
+          } else if (options.confidence >= 0.6) {
+            confidenceClass = 'confidence-medium';
+            confidenceBadge = '<span class="confidence-badge ' + confidenceClass + '">◐ 신뢰도 보통</span>';
           } else {
-            alert('❌ 연결 요청 중 오류가 발생했습니다.\n직접 교무지원과(내선 1234)로 연락해주세요.');
+            confidenceClass = 'confidence-low';
+            confidenceBadge = '<span class="confidence-badge ' + confidenceClass + '">! 신뢰도 낮음</span>';
           }
-        }).catch(error => {
-          console.error('에스컬레이션 오류:', error);
-          alert('❌ 연결 요청 중 오류가 발생했습니다.\n직접 교무지원과(내선 1234)로 연락해주세요.');
-        });
+        }
+        
+        let sourcesHtml = '';
+        if (options.sources && options.sources.length > 0) {
+          sourcesHtml = '<div class="sources"><div class="sources-title">📚 참고 문서</div>';
+          options.sources.forEach(source => {
+            sourcesHtml += `
+              <div class="source-item">
+                <span class="source-category">${escapeHtml(source.category)}</span>
+                <span>${escapeHtml(source.filename)}</span>
+              </div>
+            `;
+          });
+          sourcesHtml += '</div>';
+        }
+        
+        let feedbackHtml = '';
+        if (!options.isError && options.messageId) {
+          feedbackHtml = `
+            <div class="feedback-buttons">
+              <button class="feedback-btn positive" onclick="giveFeedback('${options.messageId}', '${escapeHtml(text)}', 'positive')">
+                👍 도움됨
+              </button>
+              <button class="feedback-btn negative" onclick="giveFeedback('${options.messageId}', '${escapeHtml(text)}', 'negative')">
+                👎 도움 안됨
+              </button>
+              <button class="feedback-btn escalate" onclick="requestEscalation('${escapeHtml(text)}')">
+                👤 담당자 연결
+              </button>
+            </div>
+          `;
+        }
+        
+        messageDiv.innerHTML = `
+          <div class="avatar">🤖</div>
+          <div class="message-content">
+            <div class="message-bubble">${escapeHtml(text).replace(/\n/g, '<br>')}</div>
+            ${sourcesHtml}
+            <div class="message-meta">
+              <span>${time}</span>
+              ${confidenceBadge}
+            </div>
+            ${feedbackHtml}
+          </div>
+        `;
       }
+      
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     // 타이핑 인디케이터
     function addTypingIndicator() {
-      const chatArea = document.getElementById('chatArea');
+      const chatMessages = document.getElementById('chatMessages');
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'message bot';
+      typingDiv.id = 'typing-indicator-' + Date.now();
       
-      const messageDiv = document.createElement('div');
-      messageDiv.className = 'message bot';
-      messageDiv.id = 'typing-indicator';
-
-      const avatar = document.createElement('div');
-      avatar.className = 'message-avatar';
-      avatar.textContent = '🤖';
-
-      const content = document.createElement('div');
-      content.className = 'message-content';
-      content.innerHTML = `
-        <div class="typing-indicator">
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
+      typingDiv.innerHTML = `
+        <div class="avatar">🤖</div>
+        <div class="message-content">
+          <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
         </div>
       `;
-
-      messageDiv.appendChild(avatar);
-      messageDiv.appendChild(content);
-      chatArea.appendChild(messageDiv);
-      chatArea.scrollTop = chatArea.scrollHeight;
       
-      return 'typing-indicator';
+      chatMessages.appendChild(typingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      return typingDiv.id;
     }
 
     function removeTypingIndicator(id) {
       const indicator = document.getElementById(id);
-      if (indicator) indicator.remove();
+      if (indicator) {
+        indicator.remove();
+      }
     }
+
+    // ==================== 피드백 ====================
+    function giveFeedback(messageId, question, feedback) {
+      pendingFeedback = { messageId, question, feedback };
+      currentRating = 0;
+      
+      // 별점 초기화
+      document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
+      document.getElementById('feedbackComment').value = '';
+      
+      // 모달 열기
+      document.getElementById('feedbackModal').classList.add('active');
+    }
+
+    function setRating(rating) {
+      currentRating = rating;
+      const stars = document.querySelectorAll('.star');
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+
+    async function submitFeedback() {
+      if (!pendingFeedback) return;
+      
+      const comment = document.getElementById('feedbackComment').value.trim();
+      
+      try {
+        // ⭐ URLSearchParams 사용
+        const formData = new URLSearchParams();
+        formData.append('action', 'feedback');
+        formData.append('sessionId', sessionId);
+        formData.append('messageId', pendingFeedback.messageId);
+        formData.append('feedback', pendingFeedback.feedback);
+        formData.append('rating', currentRating);
+        if (comment) formData.append('comment', comment);
+        
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        });
+        
+        alert('피드백을 주셔서 감사합니다! 😊');
+        closeFeedbackModal();
+        
+      } catch (error) {
+        console.error('피드백 전송 오류:', error);
+        alert('피드백 전송에 실패했습니다.');
+      }
+    }
+
+    function closeFeedbackModal() {
+      document.getElementById('feedbackModal').classList.remove('active');
+      pendingFeedback = null;
+      currentRating = 0;
+    }
+
+    // ==================== 에스컬레이션 ====================
+    function requestEscalation(question) {
+      pendingEscalation = { question };
+      document.getElementById('escalationEmail').value = '';
+      document.getElementById('escalationPhone').value = '';
+      document.getElementById('escalationModal').classList.add('active');
+    }
+
+    async function submitEscalation() {
+      if (!pendingEscalation) return;
+      
+      const email = document.getElementById('escalationEmail').value.trim();
+      const phone = document.getElementById('escalationPhone').value.trim();
+      
+      if (!email) {
+        alert('이메일을 입력해주세요.');
+        return;
+      }
+      
+      try {
+        // ⭐ URLSearchParams 사용
+        const formData = new URLSearchParams();
+        formData.append('action', 'escalate');
+        formData.append('sessionId', sessionId);
+        formData.append('question', pendingEscalation.question);
+        formData.append('userEmail', email);
+        if (phone) formData.append('userPhone', phone);
+        
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          alert('담당자 연결 요청이 완료되었습니다.\n곧 연락드리겠습니다. 😊');
+          closeEscalationModal();
+        } else {
+          throw new Error(data.error || '알 수 없는 오류');
+        }
+        
+      } catch (error) {
+        console.error('에스컬레이션 오류:', error);
+        alert('요청 전송에 실패했습니다.');
+      }
+    }
+
+    function closeEscalationModal() {
+      document.getElementById('escalationModal').classList.remove('active');
+      pendingEscalation = null;
+    }
+
+    // ==================== 유틸리티 ====================
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // 모달 외부 클릭 시 닫기
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('active');
+      }
+    };
   </script>
 </body>
 </html>
